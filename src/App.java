@@ -15,7 +15,7 @@ public class App {
         if (rootIndex == input.length - 1) {
             return listInt;
         }
-        for (int i = rootIndex; i < input.length; i++) {
+        for (int i = rootIndex + 1; i < input.length; i++) {
             int[] combination = new int[2];
             combination[0] = input[rootIndex];
             combination[1] = input[i];
