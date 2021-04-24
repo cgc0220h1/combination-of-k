@@ -5,7 +5,7 @@ public class RecursiveCombination {
     public static void main(String[] args) {
         try {
             int[] input = IntStream.range(
-                    Integer.parseInt(args[0]) , Integer.parseInt(args[1])
+                    Integer.parseInt(args[0]) , Integer.parseInt(args[1]) + 1
             ).toArray();
             printCombination(input, Integer.parseInt(args[2]));
         } catch (NumberFormatException exception) {
