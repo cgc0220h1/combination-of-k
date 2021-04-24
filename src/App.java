@@ -1,17 +1,26 @@
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class App {
     public static void main(String[] args) {
-        int[] input = new int[]{1, 2, 3, 4, 5};
-        for (int i = 0; i < input.length; i++) {
-            int[] output = new int[3];
-            output[0] = input[i];
-            for (int j = i + 1; j < input.length; j++) {
-                output[1] = input[j];
-                for (int k = j + 1; k < input.length; k++) {
-                    output[2] = input[k];
-                    System.out.println(Arrays.toString(output));
-                }
+        int[] input = IntStream.range(0 , 5).toArray();
+        printCombination(input, 3);
+    }
+
+    private static void printCombination(int[] input, int k) {
+        int[] temp = new int[k];
+        printCombination(input, temp, 0, 0, k);
+    }
+
+    private static void printCombination(int[] input, int[] temp, int root, int start, int k) {
+        for (int i = start; i < input.length; i++) {
+            temp[root] = input[i];
+            if (root == k - 1) {
+                System.out.println(Arrays.toString(temp));
+            } else {
+                int newRoot = root + 1;
+                int newStart = ++start;
+                printCombination(input, temp, newRoot, newStart, k);
             }
         }
     }
